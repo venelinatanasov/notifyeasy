@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Notification } from './notification.model';
 @Component({
   selector: 'app-notify-easy-home',
   templateUrl: './notify-easy-home.page.html',
