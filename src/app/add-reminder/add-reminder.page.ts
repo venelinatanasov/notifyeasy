@@ -6,13 +6,17 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./add-reminder.page.scss']
 })
 export class AddReminderPage implements OnInit {
-    NameInput = '';
-    NotesInput = '';
+    DateInput: any;
+    NameInput: any;
+    NotesInput: any;
+
     constructor() {}
 
     ngOnInit() {}
     SubmitInput() {
+
         console.log(this.NameInput);
         console.log(this.NotesInput);
+        console.log(this.DateInput);
     }
 }
