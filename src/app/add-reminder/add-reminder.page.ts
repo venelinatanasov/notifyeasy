@@ -15,11 +15,13 @@ export class AddReminderPage implements OnInit {
 
     notarr: CustomNotification[] = [];
 
-
     constructor() {}
 
     ngOnInit() {}
     SubmitInput() {
+        if (this.CheckInput()) {
+            return;
+        }
         const not: CustomNotification = {
             id: this.notarr.length + 1,
             date: this.DateInput,
@@ -29,5 +31,16 @@ export class AddReminderPage implements OnInit {
         console.log(not);
         this.notarr.push(not);
         console.log(this.notarr);
+    }
+    CheckInput() {
+        if (this.DateInput === undefined ||
+            this.DateInput === '' ||
+            this.NameInput === undefined ||
+            this.NameInput === '' ||
+            this.NotesInput === undefined ||
+             this.NotesInput === '') {
+            return 1;
+        }
+        return 0;
     }
 }
