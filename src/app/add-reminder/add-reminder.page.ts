@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomNotification } from '../notify-easy-home/notification.model';
-
+import { Router } from '@angular/router';
 @Component({
     selector: 'app-add-reminder',
     templateUrl: './add-reminder.page.html',
@@ -15,7 +15,9 @@ export class AddReminderPage implements OnInit {
 
     notarr: CustomNotification[] = [];
 
-    constructor() {}
+    constructor(
+        private router: Router
+    ) {}
 
     ngOnInit() {}
     SubmitInput() {
@@ -31,6 +33,7 @@ export class AddReminderPage implements OnInit {
         console.log(not);
         this.notarr.push(not);
         console.log(this.notarr);
+        this.EmptyBoxes();
     }
     CheckInput() {
         if (this.DateInput === undefined ||
@@ -42,5 +45,15 @@ export class AddReminderPage implements OnInit {
             return 1;
         }
         return 0;
+    }
+    EmptyBoxes() {
+        this.NameInput = '';
+        this.NotesInput = '';
+        this.DateInput = '';
+    }
+
+    CancelInput() {
+        this.EmptyBoxes();
+        this.router.navigate(['/notify-easy-home']);
     }
 }
