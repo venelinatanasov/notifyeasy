@@ -1,6 +1,6 @@
-export interface Notification {
+export interface CustomNotification {
     id: number;
-    date: Date;
+    date: string;
     Name: string;
     Notes: string;
 }
